@@ -14,6 +14,7 @@ public class StartMenuPage : MonoBehaviour
 
     private void PlayGame()
     {
+        Time.timeScale = 1;
         LoadingLogic.LoadScene(BattleSceneName);
     }
 }
