@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public Character[] playerCharacters;
     public Character[] enemyCharacters;
     InBattlePage inBattlePage;
+    ResultOfLevelPage resultOfLevelPage;
     Character currentTarget;
     bool waitingPlayerInput;
 
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour
     {
         //inBattlePage = GetComponent<InBattlePage>();
         inBattlePage = FindObjectOfType<InBattlePage>();
+        resultOfLevelPage = FindObjectOfType<ResultOfLevelPage>();
         StartCoroutine(GameLoop());
     }
 
@@ -66,13 +68,13 @@ public class GameController : MonoBehaviour
     void PlayerWon()
     {
         Debug.Log("Player won");
-        inBattlePage.TheEndOfLevel("Player won");
+        resultOfLevelPage.TheEndOfLevel("Player won");
     }
 
     void PlayerLost()
     {
         Debug.Log("Player lost");
-        inBattlePage.TheEndOfLevel("Player lost");
+        resultOfLevelPage.TheEndOfLevel("Player lost");
     }
 
     Character FirstAliveCharacter(Character[] characters)
